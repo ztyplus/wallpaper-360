@@ -4,8 +4,9 @@
       <el-row :gutter="0" >
         <el-col v-for="item in dataList" :key="item.id" :span="12" :xs="24" :md="8" :xl="6">
           <div class="imgbox img-169">
+            <div class="copyurl" @click="methods.copyUrl(item.url)">copyUrl</div>
             <photo-consumer :intro="item.utag" class="item"  :src="item.url">
-              <img :src="item.img_1024_768 ? item.img_1024_768 : item.url" class="view-box">
+              <img :src="item.img_1024_768 ? item.img_1024_768 : item.url" class="transform view-box">
               <span>{{item.utag}}</span>
             </photo-consumer>
           </div>
@@ -25,11 +26,12 @@ import { reactive,onMounted,toRefs } from 'vue'
 import { useRoute } from "vue-router"
 import EventBus from '@/utils/EventBus'
 import FootBox from '@/components/FootBox'
+import {ElMessage} from 'element-plus'
+import useClipboard from 'vue-clipboard3'
 export default {
     name: "ImgPage",
     components: {FootBox},
     setup(){    
-      
       const route = useRoute()
       let api = ""
       const state = reactive({
@@ -79,6 +81,11 @@ export default {
             }
         }
       },
+      copyUrl(url){
+        const { toClipboard } = useClipboard()
+        toClipboard(url)
+        ElMessage({ message: "复制原图URL成功！", type: "success" });
+      }
     }
 
     onMounted(()=>{
@@ -163,5 +170,28 @@ export default {
     content: '';
     display: block;
   }
+}
+.copyurl {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  font-size: 12px;
+  width: 50px;
+  color: #fff;
+  background: rgba(50, 50, 50, 0.25);
+  padding: 2px 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 9;
+}
+.copyurl:hover {
+  background-color: #2997f7;
+}
+.transform {
+    -webkit-transition: all 0.3s!important;
+    -moz-transition: all 0.3s!important;
+    -o-transition: all 0.3s!important;
+    -ms-transition: all 0.3s!important;
+    transition: all 0.3s!important;
 }
 </style>

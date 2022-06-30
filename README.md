@@ -34,12 +34,6 @@
 将网站目录设置为打包上传后的文件夹
 
 ```bash
-    location ^~ / {
-      if (!-e $request_filename){
-        rewrite ^(.*)$ /$1.html last;
-        break;
-      }
-    }
     location /360 {
         rewrite ^.+360/?(.*)$ /$1 break;
         include uwsgi_params;
