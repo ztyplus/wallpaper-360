@@ -3,7 +3,7 @@
       <div class="container">
         <p class="c">Copyright © 2019-2021 · 南玖</p>
         <div class="c">
-            <a href="https://beian.miit.gov.cn/"><img src="@/assets/images/icp.png"><span>黔ICP备19012043号-3</span></a>
+            
         </div>
       </div>
   </div>

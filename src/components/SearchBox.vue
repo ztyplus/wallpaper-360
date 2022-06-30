@@ -36,7 +36,7 @@ export default {
                 })
             },
             search(kw){
-                router.push('/wallpaper?kw='+kw)
+                router.push('/?kw='+kw)
                 EventBus.emit('upList',{kw:kw})
             },
         }
