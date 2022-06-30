@@ -1,9 +1,9 @@
 <template>
   <div class="footer">
       <div class="container">
-        <p class="c">Copyright © 2019-2021 · 南玖</p>
+        <p class="c">Copyright © {{new Date().getFullYear()}} · 相左</p>
         <div class="c">
-            
+            <a href="https://beian.miit.gov.cn/"><img src="@/assets/images/icp.png"><span>你的备案号</span></a>
         </div>
       </div>
   </div>
