@@ -5,18 +5,10 @@ const routes = [
     {
       name: 'index',
       path: '/',
-      component: () => import('@/App.vue'),
-      children: [
-        {
-          title: '壁纸库',
-          name: 'images',
-          path: '/',
-          component: () => import('@/components/ImgPage'),
-        },
-      ] 
+      component: () => import('@/components/ImgPage'),
     },
 ]
-  
+
 
 const router = createRouter({
     history: createWebHistory(),
