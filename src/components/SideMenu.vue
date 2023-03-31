@@ -5,13 +5,13 @@
       <SearchBox></SearchBox>
       <el-row :gutter="10">
           <el-col :span="24">
-              <router-link :to="{name:'images'}" class="grid-content home">
+              <router-link :to="{name:'index'}" class="grid-content home">
                   <img src="@/assets/images/home.svg" alt="最近更新">
                   <span>HOME</span>
               </router-link>
           </el-col>
           <el-col  v-for="item in sort" :key="item.id" :span="12">
-              <router-link :to="{name:'images',query:{'id':item.id}}" class="grid-content">
+              <router-link :to="{name:'index',query:{'id':item.id}}" class="grid-content">
                   <img src="@/assets/images/plane.svg" :alt="item.name">
                   <span>{{item.name}}</span>
               </router-link>
