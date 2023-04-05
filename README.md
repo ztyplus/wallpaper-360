@@ -1,13 +1,21 @@
-http://cdn.apc.360.cn/index.php?c=WallPaper&a=getAllCategoriesV2&from=360chrome
+# 一个基于360壁纸接口的壁纸网站
 
-根据分类ID获取壁纸
-http://wallpaper.apc.360.cn/index.php?c=WallPaper&a=getAppsByCategory&cid=${分类ID}&start=${从第几张图开始}&count=${每次加载的数量}&from=360chrome
+[演示站](https://wper.ztyang.com):https://wper.ztyang.com
 
-获取最近更新壁纸
-http://wallpaper.apc.360.cn/index.php?c=WallPaper&a=getAppsByOrder&order=create_time&start=${从第几张图开始}&count=${每次加载的数量}&from=360chrome
+![](images/Snipaste_2023-04-05_13-18-22.png)
+![](images/Snipaste_2023-04-05_13-19-22.png)
+![](images/Snipaste_2023-04-05_13-19-41.png)
 
-壁纸搜索接口
-http://wallpaper.apc.360.cn/index.php?c=WallPaper&a=search&kw=${kw}&start=${start}&count=${count}
+# 服务端 Nginx 配置解决跨域
 
-热门搜索
-http://openbox.mobilem.360.cn/html/api/wallpaperhot.html
+![](images/Snipaste_2023-04-05_13-22-35.png)
+
+```sh
+location /search {
+    proxy_pass http://wallpaper.apc.360.cn/index.php;
+}
+
+location /imglist {
+    proxy_pass http://wallpaper.apc.360.cn/index.php;
+}
+```
